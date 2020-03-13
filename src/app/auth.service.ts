@@ -15,6 +15,7 @@ BASE_URL='http://localhost:3000/users' ;
     }) ; 
   }
 
+  
   getUserInfo()
   { let id = localStorage.getItem('id'); 
     let token = localStorage.getItem('token'); 

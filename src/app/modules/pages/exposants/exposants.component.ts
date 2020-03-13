@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/auth.service';
+import { ExposantService ,Exposant} from './exposants.service';
+import {TableModule} from 'primeng/table';
 
 @Component({
   selector: 'app-exposants',
@@ -8,15 +9,16 @@ import { AuthService } from 'src/app/auth.service';
 })
 export class ExposantsComponent implements OnInit {
  
-  
-  constructor(private auth:AuthService) { }
+  exposants: Exposant[];
+
+  constructor(private exposantService:ExposantService) { }
 
   ngOnInit() {
-  }
-  Supprimer(id)
-  {
-    this.auth.deleteuser(id).subscribe(data=>{
-      let result:any=data ; 
+    this.exposantService.getexposant().then(data=>{
+    this.exposants=data;
+      console.log(data) ; 
     })
+    
   }
+  
 }

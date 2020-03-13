@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA} from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +8,7 @@ import { ExposantsComponent } from './modules/pages/exposants/exposants.componen
 import { ParticipantsComponent } from './modules/pages/participants/participants.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './auth.service';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,11 @@ import { AuthService } from './auth.service';
     BrowserModule,
     AppRoutingModule,
     LayoutModule, 
-    HttpClientModule
+    HttpClientModule,
+    TableModule
   ],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA,NO_ERRORS_SCHEMA ]
 })
 export class AppModule { }
